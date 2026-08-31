@@ -1,0 +1,6 @@
+@extends('layouts.app')
+@section('title', 'Logowanie — LokalPay Pro')
+@section('content')
+<main class="auth-shell"><a class="auth-brand" href="{{ route('home') }}"><span class="brand-mark">L</span> LokalPay Pro</a><section class="auth-card"><h1>Witaj ponownie</h1><p>Zaloguj się do swojego panelu.</p>@if(session('status'))<div class="alert alert-success">{{ session('status') }}</div>@endif
+<form method="post" action="{{ route('login') }}">@csrf<label class="form-label">E-mail<input class="form-control" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="email"></label>@error('email')<div class="text-danger small">{{ $message }}</div>@enderror<label class="form-label mt-3">Hasło<input class="form-control" type="password" name="password" required autocomplete="current-password"></label><div class="d-flex justify-content-between my-3"><label><input type="checkbox" name="remember"> Zapamiętaj mnie</label><a href="{{ route('password.request') }}">Nie pamiętam hasła</a></div><button class="btn btn-lime w-100">Zaloguj się</button></form><p class="mt-4 mb-0">Nie masz konta? <a href="{{ route('register') }}">Załóż bezpłatnie</a></p></section></main>
+@endsection

@@ -1,0 +1,2 @@
+@extends('layouts.app')
+@section('content')<main class="auth-shell"><section class="auth-card"><h1>Reset hasła</h1><p>Wyślemy bezpieczny, czasowy link. Odpowiedź nie ujawnia, czy konto istnieje.</p>@if(session('status'))<div class="alert alert-success">{{ session('status') }}</div>@endif<form method="post" action="{{ route('password.email') }}">@csrf<label class="form-label">E-mail<input class="form-control" type="email" name="email" required></label><button class="btn btn-lime w-100 mt-3">Wyślij link</button></form></section></main>@endsection
